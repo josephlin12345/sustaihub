@@ -24,8 +24,18 @@ python 3.6或以上
 
   抓取資料
 
-      python main.py
+      python scraper.py
 
-**Docker:**
+**利用Docker執行:**
 
-可利用Dockerfile建立Docker Image後執行
+* step 1:
+
+  在資料夾中下輸入指令建立docker image
+
+      docker build -t scraper .
+
+* step 2:
+
+  建立容器並在背景執行
+
+      docker run -d --name scraper scraper
