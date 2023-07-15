@@ -63,6 +63,7 @@ python 3.6或以上
 * 遇到的問題:
 
   網站會限制爬取資料頻率，有嘗試將線程數改為1、被限制時過幾秒再重試，解除註解以下3行程式碼以嘗試
+  
       import time
       time.sleep(0.1)
       executor._max_workers = 1
