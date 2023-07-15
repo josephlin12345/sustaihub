@@ -38,4 +38,31 @@ python 3.6或以上
 
   建立容器並在背景執行
 
-      docker run -d --name scraper scraper
+      docker run -d --name=scraper scraper
+
+* step 3:
+
+  查看執行log
+
+      docker logs scraper
+
+**程式執行流程:**
+
+* step 1:
+
+  使用多線程從網站爬取各年度清單
+
+* step 2:
+
+  從清單爬取個項目詳細資料並過濾出需要的資料
+
+* step 3:
+
+  加入splite資料庫
+
+* 遇到的問題:
+
+  網站會限制爬取資料頻率，有嘗試將線程數改為1、被限制時過幾秒再重試，解除註解以下3行程式碼以嘗試
+      import time
+      time.sleep(0.1)
+      executor._max_workers = 1

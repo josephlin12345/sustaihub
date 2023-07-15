@@ -1,4 +1,5 @@
 import re
+# import time
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
 
@@ -13,6 +14,7 @@ def query(url, data):
     response = requests.post(url, data)
     # 被擋下就重試
     if 'Too many query requests from your ip, please wait and try again later!!' in response.text:
+      # time.sleep(0.1)
       raise
   except:
     return query(url, data)
@@ -78,6 +80,7 @@ details_url = base_url + 'ajax_t05st01'
 db = session()
 
 with ThreadPoolExecutor() as executor:
+  # executor._max_workers = 1
   # 取得清單，kind:上市/上櫃、year:0~今年
   for items in executor.map(lambda p: get_items(*p), [(kind, year) for kind in ['L', 'O'] for year in range(1, datetime.now().year - 1911 + 1)]):
     # 取得每個項目的詳細資料
