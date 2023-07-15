@@ -66,7 +66,7 @@ def get_details(item):
       '承銷方式': re.findall('承銷方式\s*:\s*(.*)', content)[0],
       '受託人': re.findall('公司債受託人\s*:\s*(.*)', content)[0],
       '承銷': re.findall('承銷或代銷機構\s*:\s*(.*)', content)[0],
-      '轉換基準日': re.findall('附有轉換、交換或認股者，其換股基準日\s*:\s*(.*)', content)[0],
+      '轉換基準日': re.findall('附有轉換、交換或認股者，其換股基準日\s*:\s*(.*)', content)[0]
     }
   # 找不到對應資料
   except IndexError:
